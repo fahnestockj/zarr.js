@@ -5,6 +5,9 @@ function baseConfig() {
   }
   console.log('Running tests in Node env.');
   return {
+    // globals: {
+    //   fetch: global.fetch,
+    // },
     globalSetup: '<rootDir>/test/globalSetup.js',
     globalTeardown: '<rootDir>/test/globalTeardown.js'
   }

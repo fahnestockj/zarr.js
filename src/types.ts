@@ -42,7 +42,8 @@ export type DtypeString =
   | '>i4'
   | '>f4'
   | '>f2'
-  | '>f8';
+  | '>f8'
+  | '<U2';
 
 /**
  * User interface for chunking.

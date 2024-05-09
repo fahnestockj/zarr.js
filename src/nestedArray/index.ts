@@ -52,10 +52,10 @@ export class NestedArray<T extends TypedArray> {
             const numShapeElements = shape.reduce((x, y) => x * y, 1);
 
             if (data === null) {
-                data = new ArrayBuffer(numShapeElements * parseInt(dtype[dtype.length - 1], 10));
+                data = new ArrayBuffer(numShapeElements * getByteLengthOfDtype(dtype));
             }
 
-            const numDataElements = (data as ArrayBuffer).byteLength / parseInt(dtype[dtype.length - 1], 10);
+            const numDataElements = (data as ArrayBuffer).byteLength / getByteLengthOfDtype(dtype);
             if (numShapeElements !== numDataElements) {
                 throw new Error(`Buffer has ${numDataElements} of dtype ${dtype}, shape is too large or small ${shape} (flat=${numShapeElements})`);
             }
@@ -154,4 +154,11 @@ export function createNestedArray<T extends TypedArray>(data: Buffer | ArrayBuff
         arr[i] = createNestedArray(data, t, nextShape, offset + mult * i * t.BYTES_PER_ELEMENT);
     }
     return arr;
+}
+
+function getByteLengthOfDtype(dtype: DtypeString) {
+    if (dtype === "<U2") {
+        return parseInt(dtype[dtype.length - 1], 10) * 4;
+    }
+    return parseInt(dtype[dtype.length - 1], 10);
 }

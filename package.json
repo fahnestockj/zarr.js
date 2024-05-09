@@ -55,7 +55,7 @@
     "prebuild": "rimraf dist",
     "build": "tsc && rollup -c rollup.config.ts",
     "start": "rollup -c rollup.config.ts -w",
-    "test": "jest --coverage",
+    "test": "jest",
     "test:browser": "TEST_ENV=browser jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache && npm run test:browser --no-cache",
