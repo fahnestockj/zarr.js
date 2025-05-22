@@ -1,4 +1,4 @@
-import { Zlib, GZip, Blosc } from 'numcodecs';
+import { Zlib, GZip, Blosc } from '@fahnestockj/numcodecs-fork';
 import { addCodec } from './zarr-core';
 
 addCodec(Zlib.codecId, () => Zlib);

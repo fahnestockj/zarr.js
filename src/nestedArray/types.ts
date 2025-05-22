@@ -63,7 +63,8 @@ const DTYPE_TYPEDARRAY_MAPPING: { [A in DtypeString]: TypedArrayConstructor<Type
   '>i4': Int32Array,
   '>f4': Float32Array,
   '>f2': Float16Array,
-  '>f8': Float64Array
+  '>f8': Float64Array,
+  '<U2': Float64Array
 };
 
 export function getTypedArrayCtr(dtype: DtypeString) {

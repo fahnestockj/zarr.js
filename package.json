@@ -1,6 +1,6 @@
 {
-  "name": "zarr",
-  "version": "0.6.3",
+  "name": "@fahnestockj/zarr-fork",
+  "version": "0.6.5",
   "description": "Javascript implementation of Zarr",
   "keywords": [
     "ndarray",
@@ -55,14 +55,15 @@
     "prebuild": "rimraf dist",
     "build": "tsc && rollup -c rollup.config.ts",
     "start": "rollup -c rollup.config.ts -w",
-    "test": "jest --coverage",
+    "test": "jest",
     "test:browser": "TEST_ENV=browser jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache && npm run test:browser --no-cache",
     "generate-typedocs": "typedoc --out docs/typedocs --theme minimal --readme none src",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "prepublishOnly": "npm run build && cp -r ./dist/* .",
-    "postpublish": "git clean -fd"
+    "postpublish": "git clean -fd",
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.6",
@@ -91,7 +92,8 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "numcodecs": "^0.2.2",
+    "@fahnestockj/numcodecs-fork": "^0.3.5",
+    "numcodecs": "0.2.2",
     "p-queue": "^7.1.0"
   }
 }

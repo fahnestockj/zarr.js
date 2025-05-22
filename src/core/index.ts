@@ -15,7 +15,7 @@ import { ValueError, PermissionError, BoundsCheckError, ContainsGroupError, isKe
 import { getCodec } from "../compression/registry";
 
 
-import type { Codec } from 'numcodecs';
+import type { Codec } from '@fahnestockj/numcodecs-fork';
 import PQueue from 'p-queue';
 
 export interface GetOptions<StoreGetOptions> {

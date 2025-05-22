@@ -1,4 +1,4 @@
-import type { Codec, CodecConstructor } from 'numcodecs';
+import type { Codec, CodecConstructor } from '@fahnestockj/numcodecs-fork';
 
 type Config = Record<string, unknown>;
 type CodecImporter = () => CodecConstructor<Config> | Promise<CodecConstructor<Config>>;
