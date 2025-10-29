@@ -158,7 +158,10 @@ export function createNestedArray<T extends TypedArray>(data: Buffer | ArrayBuff
 
 function getByteLengthOfDtype(dtype: DtypeString) {
     if (dtype === "<U2") {
-        return parseInt(dtype[dtype.length - 1], 10) * 4;
+        return 2 * 4;
+    }
+    if (dtype === "<U1024") {
+        return 1024 * 4;
     }
     return parseInt(dtype[dtype.length - 1], 10);
 }
